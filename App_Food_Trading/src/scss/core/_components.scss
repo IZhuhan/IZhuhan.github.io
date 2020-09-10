@@ -1,0 +1,57 @@
+// ========== DEFAULT COMPONENTS START ========== //
+.section {
+  position: relative;
+  background-color: $bgColorBlue;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding: 10vh;
+
+  &:first-child {
+    border-top-left-radius: 0;
+  }
+
+  &:nth-last-child(2) {
+    border-bottom-left-radius: 0;
+  }
+
+  &.show-section-content {
+    .section-title {
+      transition: all .6s ease-in;
+      font-weight: $fontBoldWeight;
+    }
+
+    .section-content {
+      transition: height 1s, opacity 1s ease-in;
+      opacity: 1;
+      height: 100%;
+    }
+  }
+
+  .section-title {
+    position: absolute;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    top: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all .6s ease-in;
+
+    &:hover {
+      transition: all .6s ease-in;
+      font-weight: $fontBoldWeight;
+    }
+  }
+
+  .section-content {
+    height: 0;
+    opacity: 0;
+    transition: opacity 1s, height .6s ease-in;
+
+    p {
+      & + * {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+// ========== DEFAULT COMPONENTS END ========== //

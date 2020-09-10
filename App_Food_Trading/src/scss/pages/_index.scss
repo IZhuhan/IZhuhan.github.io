@@ -1,0 +1,130 @@
+.main-container {
+  overflow: hidden;
+  opacity: 0;
+  height: 100vh;
+
+  .inner {
+    background: linear-gradient(0deg, rgba(16, 34, 60, 1) 0%, rgba(85, 102, 127, 1) 100%);
+
+    .logo {
+      width: 340px;
+    }
+  }
+
+  .sections-wrap {
+    transform: translateX(100%);
+    width: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .section {
+      .contact-items {
+        .item {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .back-to-top {
+      display: none;
+    }
+  }
+
+  &.show-container {
+    transition: opacity 1s ease-in;
+    opacity: 1;
+
+    &.show-content {
+      .inner {
+        transition: width 2s, background 2s ease-in;
+        width: 50%;
+        background: transparent none;
+
+        .logo {
+          transition: width 2s ease-in;
+          width: 55%;
+        }
+      }
+
+      .sections-wrap {
+        transition: width 2s, transform 1s ease-in;
+        transform: translateX(0);
+        width: 50%;
+      }
+
+      &.show-section-content {
+        .inner {
+          width: 30%;
+        }
+
+        .sections-wrap {
+          overflow-y: auto;
+          width: 70%;
+
+          .section {
+            &:nth-last-child(2) {
+              border-top-left-radius: 25px;
+              border-bottom-left-radius: 25px;
+            }
+
+            &:last-child {
+              border-bottom-left-radius: 0;
+            }
+
+            &.back-to-top {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-down(sm) {
+  .main-container {
+    .inner {
+      height: 100vh;
+    }
+
+    .sections-wrap {
+      transform: translateY(100%) translateX(0%);
+      height: 0;
+      width: auto;
+
+      .back-to-top {
+        display: none;
+      }
+    }
+
+    &.show-container {
+      &.show-content {
+        .inner {
+          transition: opacity 1s, height 1s, transform 1s ease-in;
+          transform: translateY(-100%);
+          opacity: 0;
+          height: 0;
+          width: auto;
+        }
+
+        .sections-wrap {
+          transition: height 2s, transform 1s ease-in;
+          transform: translateY(0);
+          height: 100%;
+          width: 100%;
+        }
+
+        &.show-section-content {
+          .sections-wrap {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
