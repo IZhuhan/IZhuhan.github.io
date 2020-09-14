@@ -3,6 +3,10 @@ body {
    font: $fontBasicWeight #{$fontBasicSize}/#{$fontBasicLineHeight} $fontBasic;
    color: $textColorWhite;
    background-color: $bgColorLightBlue;
+
+  &.mazon-gourmet {
+    background: transparent url(../img/png/factura.png) center / cover no-repeat;
+  }
 }
 
 ::selection {
