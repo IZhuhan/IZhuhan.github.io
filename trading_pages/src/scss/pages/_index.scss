@@ -116,23 +116,3 @@
     }
   }
 }
-
-@include media-breakpoint-down(xs) {
-  .mazon-gourmet {
-    .main-container {
-      .sections-wrap {
-        .section {
-          .btn-row {
-            .btn {
-
-              & + .btn {
-                margin-left: 0;
-                margin-top: 10px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
